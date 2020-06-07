@@ -1,59 +1,68 @@
 module Web.URL
   ( URL
-  , URLSearchParams
   , fromAbsolute
   , fromRelative
+  , unsafeFromAbsolute
+  , unsafeFromRelative
   , toString
-  , hash
-  , host
-  , hostname
+
   , href
-  , origin
-  , password
-  , pathname
-  , port
-  , protocol
-  , search
-  , searchParams
-  , setHash
-  , setHost
-  , setHostname
   , setHref
-  , setPassword
-  , setPathname
-  , setPort
+  , protocol
   , setProtocol
-  , setSearch
-  , setUsername
+  , host
+  , setHost
+  , hostname
+  , setHostname
   , username
+  , setUsername
+  , password
+  , setPassword
+  , port
+  , setPort
+  , pathname
+  , setPathname
+  , search
+  , setSearch
+  , searchParams
+  , hash
+  , setHash
+  , origin
   )
 where
 
 import Prelude
-import Data.Maybe (Maybe(..))
 
+import Data.Maybe (Maybe(..), fromJust)
+import Partial.Unsafe (unsafePartial)
+import Web.URL.URLSearchParams (URLSearchParams)
 
 foreign import data URL :: Type
 
 instance showURL :: Show URL where
   show = toString
 
-foreign import data URLSearchParams :: Type
 
 -- | Construct a URL from a string containing an absolute URL.
 fromAbsolute :: String -> Maybe URL
-fromAbsolute base = if isUndefined url then Nothing else Just url
-    where url = mkURL base
+fromAbsolute base = urlImpl Just Nothing base
 
 -- | Construct a URL from two strings containing a relative and absolute URL
 -- | respectively.
 fromRelative :: String -> String -> Maybe URL
-fromRelative rel base = if isUndefined url then Nothing else Just url
-    where url = mkURLRel rel base
+fromRelative rel base = url2Impl Just Nothing rel base
 
-foreign import mkURL :: String -> URL
-foreign import mkURLRel :: String -> String -> URL
-foreign import isUndefined :: URL -> Boolean
+-- | If you know you have a valid (hardcoded) absolute URL, you could use this constructor.
+unsafeFromAbsolute :: String -> URL
+unsafeFromAbsolute = unsafePartial $ fromJust <<< fromAbsolute
+
+-- | If you know you have a valid relative and absolute URL, you could use this constructor.
+unsafeFromRelative :: String -> String -> URL
+unsafeFromRelative rel = unsafePartial $ fromJust <<< fromRelative rel
+
+
+foreign import urlImpl :: (URL -> Maybe URL) -> Maybe URL -> String -> Maybe URL
+foreign import url2Impl :: (URL -> Maybe URL) -> Maybe URL -> String -> String -> Maybe URL
 
 
 -- | Returns a String containing the whole URL.

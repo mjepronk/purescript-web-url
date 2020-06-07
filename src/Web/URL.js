@@ -1,23 +1,29 @@
-exports.mkURL = function(base) {
-    try {
-        return new URL(base);
-    } catch (TypeError) {
-        return undefined;
-    }
-};
+"use strict";
 
-exports.mkURLRel = function(rel) {
-    return function(base) {
-        try {
-            return new URL(rel, base);
-        } catch (TypeError) {
-            return undefined;
+exports.urlImpl = function(just) {
+    return function(nothing) {
+        return function(base) {
+            try {
+                return new URL(base);
+            } catch (TypeError) {
+                return undefined;
+            }
         }
     }
 };
 
-exports.isUndefined = function(value) {
-    return value === undefined;
+exports.url2Impl = function(just) {
+    return function(nothing) {
+        return function(rel) {
+            return function(base) {
+                try {
+                    return just(new URL(rel, base));
+                } catch (TypeError) {
+                    return nothing;
+                }
+            }
+        }
+    }
 };
 
 exports.toString     = function(url) { return url.toString(); };
