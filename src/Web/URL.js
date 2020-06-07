@@ -4,9 +4,9 @@ exports.urlImpl = function(just) {
     return function(nothing) {
         return function(base) {
             try {
-                return new URL(base);
+                return just(new URL(base));
             } catch (TypeError) {
-                return undefined;
+                return nothing;
             }
         }
     }

@@ -5,7 +5,6 @@ module Web.URL
   , unsafeFromAbsolute
   , unsafeFromRelative
   , toString
-
   , href
   , setHref
   , protocol
@@ -38,6 +37,9 @@ import Partial.Unsafe (unsafePartial)
 import Web.URL.URLSearchParams (URLSearchParams)
 
 foreign import data URL :: Type
+
+instance eqURL :: Eq URL where
+  eq a b = toString a == toString b
 
 instance showURL :: Show URL where
   show = toString
