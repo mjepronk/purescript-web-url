@@ -1,0 +1,24 @@
+{
+    "name": "purescript-web-url",
+    "license": [
+        "BSD-3-Clause"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mjepronk/purescript-web-url/"
+    },
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "output"
+    ],
+    "dependencies": {
+        "purescript-maybe": "^v4.0.1",
+        "purescript-partial": "^v2.0.1",
+        "purescript-prelude": "^v4.1.1",
+        "purescript-psci-support": "^v4.0.0",
+        "purescript-spec": "^v4.0.1",
+        "purescript-tuples": "^v5.1.0"
+    }
+}
