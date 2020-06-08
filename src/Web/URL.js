@@ -40,13 +40,13 @@ exports.search       = function(url) { return url.search; }
 exports.searchParams = function(url) { return url.searchParams; }
 exports.username     = function(url) { return url.username; }
 
-exports.setHash     = function(v) { return function(url) { u = new URL(url); u.hash = v; return u; } }
-exports.setHost     = function(v) { return function(url) { u = new URL(url); u.host = v; return u; } }
-exports.setHostname = function(v) { return function(url) { u = new URL(url); u.hostname = v; return u; } }
-exports.setHref     = function(v) { return function(url) { u = new URL(url); u.href = v; return u; } }
-exports.setPassword = function(v) { return function(url) { u = new URL(url); u.password = v; return u; } }
-exports.setPathname = function(v) { return function(url) { u = new URL(url); u.pathname = v; return u; } }
-exports.setPort     = function(v) { return function(url) { u = new URL(url); u.port = v; return u; } }
-exports.setProtocol = function(v) { return function(url) { u = new URL(url); u.protocol = v; return u; } }
-exports.setSearch   = function(v) { return function(url) { u = new URL(url); u.search = v; return u; } }
-exports.setUsername = function(v) { return function(url) { u = new URL(url); u.username = v; return u; } }
+exports.setHash     = function(v) { return function(url) { var u = new URL(url); u.hash = v; return u; } }
+exports.setHost     = function(v) { return function(url) { var u = new URL(url); u.host = v; return u; } }
+exports.setHostname = function(v) { return function(url) { var u = new URL(url); u.hostname = v; return u; } }
+exports.setHref     = function(v) { return function(url) { var u = new URL(url); u.href = v; return u; } }
+exports.setPassword = function(v) { return function(url) { var u = new URL(url); u.password = v; return u; } }
+exports.setPathname = function(v) { return function(url) { var u = new URL(url); u.pathname = v; return u; } }
+exports.setPort     = function(v) { return function(url) { var u = new URL(url); u.port = v; return u; } }
+exports.setProtocol = function(v) { return function(url) { var u = new URL(url); u.protocol = v; return u; } }
+exports.setSearch   = function(v) { return function(url) { var u = new URL(url); u.search = v; return u; } }
+exports.setUsername = function(v) { return function(url) { var u = new URL(url); u.username = v; return u; } }
