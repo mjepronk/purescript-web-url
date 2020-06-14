@@ -4,5 +4,5 @@
 , packages = ./packages.dhall
 , sources = [ "src/**/*.purs", "test/**/*.purs" ]
 , license = "BSD-3-Clause"
-, repository = "git://github.com/mjepronk/purescript-web-url.git"
+, repository = "https://github.com/mjepronk/purescript-web-url.git"
 }
