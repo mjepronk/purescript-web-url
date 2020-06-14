@@ -5,7 +5,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git://github.com/mjepronk/purescript-web-url.git"
+        "url": "https://github.com/mjepronk/purescript-web-url.git"
     },
     "ignore": [
         "**/.*",
