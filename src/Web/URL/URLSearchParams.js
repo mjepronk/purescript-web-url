@@ -1,10 +1,8 @@
-"use strict";
-
-exports.urlSearchParamsImpl = function(x) {
+export function urlSearchParamsImpl(x) {
     return new URLSearchParams(x);
-};
+}
 
-exports.appendImpl = function(name) {
+export function appendImpl(name) {
     return function(value) {
         return function(p) {
             var n = new URLSearchParams(p);
@@ -12,17 +10,17 @@ exports.appendImpl = function(name) {
             return n;
         }
     }
-};
+}
 
-exports.deleteImpl = function(name) {
+export function deleteImpl(name) {
     return function(p) {
         var n = new URLSearchParams(p);
         n.delete(name);
         return n;
     }
-};
+}
 
-exports.entriesImpl = function(tuple) {
+export function entriesImpl(tuple) {
     return function(p) {
         var a = [];
         for (const e of p.entries()) {
@@ -30,9 +28,9 @@ exports.entriesImpl = function(tuple) {
         }
         return a;
     }
-};
+}
 
-exports.getImpl = function(just) {
+export function getImpl(just) {
     return function(nothing) {
         return function(name) {
             return function(p) {
@@ -45,21 +43,21 @@ exports.getImpl = function(just) {
             }
         }
     }
-};
+}
 
-exports.getAllImpl = function(name) {
+export function getAllImpl(name) {
     return function(p) {
         return p.getAll(name);
     }
-};
+}
 
-exports.hasImpl = function(name) {
+export function hasImpl(name) {
     return function(p) {
         return p.has(name);
     }
-};
+}
 
-exports.setImpl = function(name) {
+export function setImpl(name) {
     return function(value) {
         return function(p) {
             var n = new URLSearchParams(p);
@@ -67,14 +65,14 @@ exports.setImpl = function(name) {
             return n;
         }
     }
-};
+}
 
-exports.sortImpl = function(p) {
+export function sortImpl(p) {
     var n = new URLSearchParams(p);
     n.sort();
     return n;
-};
+}
 
-exports.toStringImpl = function(p) {
+export function toStringImpl(p) {
     return p.toString();
-};
+}
