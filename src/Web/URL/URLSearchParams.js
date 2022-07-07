@@ -1,3 +1,5 @@
+"use strict";
+
 export function urlSearchParamsImpl(x) {
     return new URLSearchParams(x);
 }
