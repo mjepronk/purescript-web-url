@@ -14,11 +14,12 @@
         "output"
     ],
     "dependencies": {
-        "purescript-maybe": "^v4.0.1",
-        "purescript-partial": "^v2.0.1",
-        "purescript-prelude": "^v4.1.1",
-        "purescript-psci-support": "^v4.0.0",
-        "purescript-spec": "^v4.0.1",
-        "purescript-tuples": "^v5.1.0"
+        "purescript-aff": "^v7.0.0",
+        "purescript-effect": "^v4.0.0",
+        "purescript-maybe": "^v6.0.0",
+        "purescript-partial": "^v4.0.0",
+        "purescript-prelude": "^v6.0.0",
+        "purescript-spec": "^v7.0.0",
+        "purescript-tuples": "^v7.0.0"
     }
 }
